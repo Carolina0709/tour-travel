@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs") %>
+
+<main class="ctn-main bg-black py-5 ">
+    <div class="container d-flex justify-content-center flex-wrap gap-3">
+            <% for (const cityName in cities) { %>
+                <% const cityData = cities[cityName]; %>
+
+                <%- include("partials/deleteModal.ejs", {city: cityData.name, key: cityName}) %>
+
+                <div class="card bg-black border-secondary shadow" style="width: 300px;">
+                    <img src="<%= cityData.url %>" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title text-white"><%= cityData.name %> </h5>
+                        <p class="card-text text-white"><%= cityData.subtitle %></p>
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="/see/<%-cityName%>" class="btn btn-danger"><i class="bi bi-eye"></i></a>
+                            <a href="/edit/<%-cityName%>" class="btn btn-danger"><i class="bi bi-pencil-square"></i></a>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-<%= cityName %>">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            <% } %>
+    </div>
+    
+</main>
+<%- include("partials/footer.ejs") %>

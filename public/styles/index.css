@@ -1,0 +1,12 @@
+.ctn-logo img{
+    max-width: 150px;
+}
+.ctn-main{
+    min-height: 85vh;
+}
+.gallery-img {
+    width: 100%; 
+    max-width: 300px;     
+    height: 300px;       
+    object-fit: cover;   
+}
